@@ -2,16 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ----
 
-## Add HEAL token contract address to wallet (BUILD ON Edu Chain TESTNET CHAIN)
+## Add HEAL token contract address to wallet (BUILD ON FLOW TESTNET CHAIN)
 
-Contract address : 0x1130faa5c22b6a10b2ad243998dd962d0569e423
+Contract address : 0xC927330030Caa8826E0FE6a6756BE64af1f4dC32
 
-[Verify HEAL on testnet](https://edu-chain-testnet.blockscout.com/token/0x1130FAa5c22b6a10b2Ad243998DD962d0569e423)
+[Verify HEAL on testnet](https://evm-testnet.flowscan.io/token/0xC927330030Caa8826E0FE6a6756BE64af1f4dC32)
 
 
 ----
 
-# Serenova (Built on Edu Chain CHAIN)
+# Serenova (Built on FLOW CHAIN)
 
 **Serenova**: Empowering mental health support by connecting you with professionals and peers via the Web3-powered HEAL token ecosystem.
 
@@ -40,9 +40,9 @@ Serenova provides a safe, innovative space for mental health support, fostering 
 
 Add HEAL contract address to your wallet 
 
-CONTRACT ADDRESS = 0x1130faa5c22b6a10b2ad243998dd962d0569e423
+CONTRACT ADDRESS = 0xC927330030Caa8826E0FE6a6756BE64af1f4dC32
 
-[Verify HEAL](https://testnet.Edu Chainscan.com/token/0x1130faa5c22b6a10b2ad243998dd962d0569e423)
+[Verify HEAL](https://testnet.FLOWscan.com/token/0xC927330030Caa8826E0FE6a6756BE64af1f4dC32)
 
 First, run the development server:
 

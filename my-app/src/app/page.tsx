@@ -54,7 +54,7 @@ export default function Home() {
                 Personalized Therapy with Blockchain Security
               </h1>
               <p className={`mb-6 ${isDark ? 'text-purple-300' : 'text-purple-800'}`}>
-                Experience secure, private therapy sessions powered by Edu Chain Chain technology. 
+                Experience secure, private therapy sessions powered by FLOW Chain technology. 
                 Earn tokens for your mental health journey.
               </p>
               <div className="space-y-4 mb-8">
@@ -67,7 +67,7 @@ export default function Home() {
                 <div className="flex items-center gap-3">
                   <div className={`h-2 rounded w-1/2 ${isDark ? 'bg-gray-700' : 'bg-white'}`} />
                   <span className={`text-sm ${isDark ? 'text-purple-300' : 'text-purple-700'}`}>
-                    Edu Chain Chain Secured
+                    FLOW Chain Secured
                   </span>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export default function Home() {
             {
               icon: <ShieldCheck className="w-10 h-10" />,
               title: "Secure Sessions",
-              description: "End-to-end encrypted therapy sessions on Edu Chain Chain"
+              description: "End-to-end encrypted therapy sessions on FLOW Chain"
             },
             {
               icon: <Heart className="w-10 h-10" />,
