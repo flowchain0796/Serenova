@@ -5,7 +5,14 @@ import Link from 'next/link';
 import { BrowserProvider, ethers } from 'ethers';
 import contractAddress from "../contractInfo/contractAddress.json"
 import contractAbi from "../contractInfo/contractAbi.json"
+import { ConnectWallet } from '@thirdweb-dev/react'; // Import ConnectWallet from thirdweb
 
+// Add type declaration for window.okxwallet
+declare global {
+  interface Window {
+    okxwallet?: any;
+  }
+}
 
 const Navbar = () => {
   const {
@@ -14,23 +21,29 @@ const Navbar = () => {
     isConnected,
     account,
     balance,
+    setBalance,
     connectWallet
   } = useApp();
 
   const [showBalanceMenu, setShowBalanceMenu] = useState(false);
 
+  const handleConnect = async () => {
+    await connectWallet();
+    setBalance('10 HEAL');
+  };
+
   const withdraw = async () => {
-      const {abi} = contractAbi;
-      const charge = 10;
-      if(window.ethereum == undefined) 
-        return
-      const provider = new BrowserProvider(window.ethereum);
-  
-      const signer = await provider.getSigner();
-      const address = await signer.getAddress();
-      const bounceContract = new ethers.Contract(contractAddress.address, abi, signer)
-  
-      await (await bounceContract.mint(address, ethers.parseUnits(charge.toString(), 18))).wait();
+    const { abi } = contractAbi;
+    const charge = 10;
+    const provider = window.ethereum || window.okxwallet;
+    if (!provider) return;
+
+    const browserProvider = new BrowserProvider(provider);
+    const signer = await browserProvider.getSigner();
+    const address = await signer.getAddress();
+    const bounceContract = new ethers.Contract(contractAddress.address, abi, signer);
+
+    await (await bounceContract.mint(address, ethers.parseUnits(charge.toString(), 18))).wait();
   }
 
   return (
@@ -69,7 +82,6 @@ const Navbar = () => {
               <button
                 className="w-full text-left px-4 py-2 text-sm rounded-md hover:bg-purple-100 text-purple-900 transition-colors"
                 onClick={() => {
-                  // Add withdraw logic here
                   withdraw();
                   setShowBalanceMenu(false);
                 }}
@@ -80,14 +92,11 @@ const Navbar = () => {
           )}
 
         </div>
-
-        <button
-          className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors"
-          onClick={isConnected ? undefined : connectWallet}
+        <div
+          onClick={isConnected ? undefined : handleConnect}
         >
-          {isConnected ? `${account?.substring(0, 6)}...${account?.substring(account?.length - 4)}` : "Connect MetaMask"}
-        </button>
-
+          <ConnectWallet />
+        </div>
         <Link
           href="/sessions"
           className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors"

@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import React from "react";
 import { AppProvider } from "./context/AppContext";
+import { ThirdwebProvider } from "thirdweb/react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,7 +24,7 @@ const geistMono = localFont({
 // };
 
 export default function RootLayout({
-  
+
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -34,11 +35,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AppProvider>
-          {/* <Navbar /> */}
-        {children}
+        <ThirdwebProvider>
 
-        </AppProvider>
+          <AppProvider>
+            {/* <Navbar /> */}
+            {children}
+
+          </AppProvider>
+        </ThirdwebProvider>
+
         {/* <Navbar isDark={isDark} setIsDark={setIsDark} /> */}
       </body>
     </html>
